@@ -15,6 +15,8 @@ const AddUser = () => {
         phone: '',
         website: ''
     })
+    let isDisabled = (user.name === '' || user.username === '' || user.email === '' || user.website === '' || user.phone === '') ? true : false
+    console.log(isDisabled, "user.name === '' && user.username === '' && user.email === '' && user.website === '' && user.phone")
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(userActions.addUser(user))
@@ -24,7 +26,7 @@ const AddUser = () => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
     return (
-        <div className='container mx-auto flex justify-center mb-10 md:mb-0'>
+        <div className='container mx-auto flex justify-center mb-10'>
             <div className='w-full md:w-96 border p-4 rounded shadow-md text-gray-800 mx-2 my-2'>
                 <p className='text-center font-bold text-2xl mb-4'>Add User</p>
                 <form onSubmit={handleSubmit}>
@@ -78,7 +80,8 @@ const AddUser = () => {
                             onChange={handleChange} />
                     </div>
                     <button type='submit'
-                        className='bg-blue-500 rounded-lg w-full text-white p-2 mt-8'>Add user</button>
+                        disabled={isDisabled}
+                        className={`${isDisabled ? 'bg-gray-500' : 'bg-blue-500'} rounded-lg w-full text-white p-2 mt-8`}>Add user</button>
                 </form>
             </div>
         </div>

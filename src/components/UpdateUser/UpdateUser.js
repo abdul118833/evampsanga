@@ -30,7 +30,7 @@ const UpdateUser = () => {
         navigate('/')
     }
     return (
-        <div className='container mx-auto flex justify-center  mb-10 md:mb-0'>
+        <div className='container mx-auto flex justify-center  mb-10'>
             <div className='w-full md:w-96 border p-4 rounded shadow-md text-gray-800 mx-2 my-2'>
                 <p className='text-center font-bold text-2xl mb-4'>Update User</p>
                 <form onSubmit={updateUserHandler}>
